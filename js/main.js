@@ -35,6 +35,8 @@ cobra[0]={
 	x:8*box,
 	y:8*box
 }
+let direcao = "right";
+
 function criarField(){
 	context.fillStyle= "lightgreen";
 	context.fillRect(0,0,16 * box, 16 * box);
@@ -49,6 +51,26 @@ function criarCobrinha(){
 	
 	
 }
-
-criarField();
-criarCobrinha();
+function iniciarJogo(){
+	criarField();
+	criarCobrinha();
+	
+	let cobraX = cobra[0].x;
+	let cobraY = cobra[0].y;
+	
+	if(direcao=="right") cobraX+=box;
+	if(direcao=="left") cobraX-=box;
+	if(direcao=="up") cobraY-=box;
+	if(direcao=="down") cobra+=box;
+	
+	cobra.pop();
+	
+	let newHead={
+		x:cobraX,
+		y:cobraY
+	}
+	
+	cobra.unshift(newHead);
+	
+}
+let jogo = setInterval(iniciarJogo,100);
