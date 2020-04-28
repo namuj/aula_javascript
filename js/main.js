@@ -37,6 +37,11 @@ cobra[0]={
 }
 let direcao = "right";
 
+let comida={
+	x:Math.floor(Math.random()*15+1)*box,
+	y:Math.floor(Math.random()*15+1)*box
+}
+
 function criarField(){
 	context.fillStyle= "lightgreen";
 	context.fillRect(0,0,16 * box, 16 * box);
@@ -50,6 +55,11 @@ function criarCobrinha(){
 	}
 	
 	
+}
+
+function criarComida(){
+	context.fillStyle="red";
+	context.fillRect(comida.x, comida.y,box,box);
 }
 
 document.addEventListener('keydown',atualizar);
@@ -71,6 +81,7 @@ function iniciarJogo(){
 	
 	criarField();
 	criarCobrinha();
+	criarComida();
 	
 	let cobraX = cobra[0].x;
 	let cobraY = cobra[0].y;
