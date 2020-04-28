@@ -63,6 +63,12 @@ function atualizar (event){
 }
 
 function iniciarJogo(){
+	if(cobra[0].x >15*box && direcao=="right") cobra[0].x=0;
+	if(cobra[0].x <0 && direcao=="left") cobra[0].x=16*box;
+	if(cobra[0].y >15*box && direcao=="down") cobra[0].y=0;
+	if(cobra[0].y <0 && direcao=="up") cobra[0].y=16*box;
+	
+	
 	criarField();
 	criarCobrinha();
 	
