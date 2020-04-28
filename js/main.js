@@ -51,6 +51,17 @@ function criarCobrinha(){
 	
 	
 }
+
+document.addEventListener('keydown',atualizar);
+
+function atualizar (event){
+	if(event.keyCode==37 && direcao !="right") direcao="left";
+	if(event.keyCode==38 && direcao !="down") direcao="up";
+	if(event.keyCode==39 && direcao !="left") direcao="right";
+	if(event.keyCode==40 && direcao !="up") direcao="down";
+	
+}
+
 function iniciarJogo(){
 	criarField();
 	criarCobrinha();
@@ -61,7 +72,7 @@ function iniciarJogo(){
 	if(direcao=="right") cobraX+=box;
 	if(direcao=="left") cobraX-=box;
 	if(direcao=="up") cobraY-=box;
-	if(direcao=="down") cobra+=box;
+	if(direcao=="down") cobraY+=box;
 	
 	cobra.pop();
 	
